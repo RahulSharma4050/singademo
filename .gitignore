@@ -1,16 +1,20 @@
-*.mp4
-*.MP4
-*.mov
-*.MOV
-*.avi
-*.AVI
-
-# Node modules - IMPORTANT!
+# Node modules
 node_modules/
 
 # Build output
 dist/
 .angular/
+
+# Cache
+*.tsbuildinfo
+.angular/cache/
+angular-compiler.db*
+
+# Videos
+*.mp4
+*.MP4
+*.mov
+*.MOV
 
 # Environment
 .env
