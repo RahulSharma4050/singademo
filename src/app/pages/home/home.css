@@ -1943,26 +1943,25 @@
         }
 
         .nav-links {
-            flex-direction: column;
-            gap: 1.5rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
             width: 100%;
             padding: 2rem 1rem;
         }
 
         .nav-links a {
-            width: 80%;
+            width: 45%;
             text-align: center;
-            padding: 1rem;
-            font-size: 1.1rem;
+            padding: 0.8rem;
+            font-size: 0.9rem;
             background: rgba(26, 15, 13, 0.8);
             backdrop-filter: blur(5px);
             opacity: 1 !important;
-            /* Force visible */
             transform: translateY(0) !important;
             display: block;
-            /* Ensure block layout */
             animation: none !important;
-            /* Disable interfering animations */
         }
 
         /* Ensure animations trigger or defaults are visible */
@@ -2092,7 +2091,11 @@
 
         .music-intro-popup {
             width: 85vw;
-            height: 60vh;
+            height: 50vh;
+            /* Reduced from 60vh to show more background */
+            max-height: 400px;
+            margin-top: 10vh;
+            /* Push down to reveal top of background (Singga's face) */
             border-radius: 20px;
         }
 
