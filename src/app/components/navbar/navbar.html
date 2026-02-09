@@ -12,7 +12,7 @@
       <a routerLink="/shows" routerLinkActive="active">Live Performances</a>
       <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
       <a routerLink="/fans" routerLinkActive="active">Fans</a>
-      <a href="#contact">Contact</a>
+      <a (click)="scrollToContact()">Contact</a>
     </div>
 
     <div class="hamburger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
@@ -36,7 +36,7 @@
       <a routerLink="/shows" routerLinkActive="active">Live Performances</a>
       <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
       <a routerLink="/fans" routerLinkActive="active">Fans</a>
-      <a href="#contact" (click)="toggleMobileMenu()">Contact Team</a>
+      <a (click)="scrollToContact()">Contact Team</a>
     </div>
   </div>
 </nav>
