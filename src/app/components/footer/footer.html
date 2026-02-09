@@ -58,23 +58,25 @@
                     <div class="compact-grid">
                         <div class="compact-field">
                             <label>YOUR NAME</label>
-                            <input type="text" name="name" required>
+                            <input type="text" name="name" [(ngModel)]="contactData.name" required>
                         </div>
                         <div class="compact-field">
                             <label>YOUR EMAIL</label>
-                            <input type="email" name="email" required>
+                            <input type="email" name="email" [(ngModel)]="contactData.email" required>
                         </div>
                         <div class="compact-field full">
                             <label>SUBJECT</label>
-                            <input type="text" name="subject" required>
+                            <input type="text" name="subject" [(ngModel)]="contactData.subject" required>
                         </div>
                         <div class="compact-field full">
                             <label>MESSAGE</label>
-                            <textarea name="message" rows="3"></textarea>
+                            <textarea name="message" rows="3" [(ngModel)]="contactData.message" required></textarea>
                         </div>
                     </div>
                     <div class="compact-submit">
-                        <button type="submit" class="compact-pill-submit">SUBMIT</button>
+                        <button type="submit" class="compact-pill-submit" [disabled]="isSending">
+                            {{ isSending ? 'SENDING...' : 'SUBMIT' }}
+                        </button>
                     </div>
                 </form>
             </div>
