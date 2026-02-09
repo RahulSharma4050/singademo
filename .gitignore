@@ -15,6 +15,32 @@ angular-compiler.db*
 *.MP4
 *.mov
 *.MOV
+*.avi
+*.AVI
+*.webm
+*.WEBM
+*.mkv
+*.MKV
+
+# Dependencies
+package-lock.json
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+*.log
 
 # Environment
 .env
+.env.local
+.env.*.local
+
+# Build files
+build/
