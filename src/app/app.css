@@ -1,0 +1,8 @@
+.content-wrapper {
+    margin-top: 70px;
+    /* Offset for fixed navbar */
+    min-height: calc(100vh - 70px - 200px);
+    /* Adjust based on footer height */
+    display: flex;
+    flex-direction: column;
+}

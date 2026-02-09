@@ -1,0 +1,25 @@
+<div class="shows-container">
+    <div class="shows-header">
+        <h1 class="header-title">LIVE VOCALS</h1>
+        <p class="header-description">Experience the energy live. Catch Singga on stage.</p>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track">
+            <div class="video-card" *ngFor="let video of videos; let i = index"
+                [ngClass]="{'active': i === activeIndex}" [ngStyle]="getVideoStyle(i)" (click)="setActive(i)">
+
+                <video #videoPlayer [src]="video.src" muted playsinline (ended)="next()"></video>
+
+                <div class="video-info" *ngIf="i === activeIndex">
+                    <h3>{{video.title}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="nav-btn prev" (click)="prev()" [disabled]="activeIndex === 0">&lt;</button>
+            <button class="nav-btn next" (click)="next()" [disabled]="activeIndex === videos.length - 1">&gt;</button>
+        </div>
+    </div>
+</div>

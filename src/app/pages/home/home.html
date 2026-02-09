@@ -1,0 +1,185 @@
+<div class="home-container">
+    <div class="custom-cursor"></div>
+
+    <section class="hero-section">
+        <div class="content-wrapper" [class.loaded]="isLoaded">
+            <h1 class="main-title">Singga</h1>
+            <h2 class="sub-title">Official <span class="copyright">&copy;</span></h2>
+        </div>
+    </section>
+
+    <section class="navigation-section">
+        <div class="nav-bg-slider">
+            <img src="assets/background/DSC02683.JPG" alt="" class="nav-bg-img">
+            <div class="nav-bg-overlay"></div>
+        </div>
+        <nav class="nav-links">
+            <a class="active">Home</a>
+            <a routerLink="/about">About Singga</a>
+            <a routerLink="/music">Music</a>
+            <a routerLink="/gallery">Gallery</a>
+            <a routerLink="/fans">Fans</a>
+            <a routerLink="/shows">Live Performances</a>
+            <a (click)="scrollToContact()">Contact Team</a>
+        </nav>
+    </section>
+
+    <section class="about-section">
+        <div class="about-content">
+            <div class="about-left">
+                <h2 class="about-title">Singga</h2>
+                <p class="about-description">
+                    Singga is a leading voice in contemporary Punjabi entertainment, known for his powerful vocals,
+                    fearless storytelling, and deep cultural connect. From chart-topping music to commanding live
+                    performances and impactful on-screen roles, Singga represents authenticity, resilience, and
+                    evolution.
+                    His art reflects real emotions, real struggles, and real stories—making him one of the most
+                    respected and influential artists of his generation.
+                </p>
+                <button class="about-btn" routerLink="/about">About Singga</button>
+            </div>
+            <div class="about-right">
+                <div class="about-image-3d-wrap">
+                    <div class="about-image-inner">
+                        <img src="assets/About/IMG_9754.PNG" alt="Singga" class="about-artist-img">
+                        <div class="about-image-frame"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="production-section">
+        <div class="production-bg-wrapper">
+            <img src="assets/background/DSC02806.JPG" alt="" class="production-bg-img">
+            <div class="production-bg-glass"></div>
+        </div>
+        <div class="production-content">
+            <h2 class="production-title">Singga</h2>
+            <h3 class="production-subtitle">Presents</h3>
+            <img src="assets/Logo/Boss Boy 1.png" alt="Boss Boy Production" class="production-logo">
+        </div>
+    </section>
+
+    <section class="trailer-section">
+        <div class="trailer-content">
+            <div class="presenting-text">Presenting to you all</div>
+            <h2 class="trailer-title">Fakkar</h2>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/s6-mAmtUnPw"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="music-section">
+        <div class="music-intro-popup">
+            <img src="assets/homepage/DSC03005.JPG" alt="Singga" class="popup-img">
+            <div class="popup-overlay"></div>
+        </div>
+
+        <div class="music-container">
+            <h2 class="music-title">Musical Journey</h2>
+
+            <div class="music-tabs">
+                <button class="active">Songs</button>
+            </div>
+
+            <div class="music-carousel-wrapper">
+                <button class="nav-btn prev-btn" (click)="scrollMusic('left')">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" />
+                    </svg>
+                </button>
+
+                <div class="music-carousel">
+                    @for (song of musicList; track song.title) {
+                    <div class="music-card" (click)="openVideo(song.link)">
+                        <img [src]="song.image" [alt]="song.title" class="music-poster">
+                        <div class="play-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+                <button class="nav-btn next-btn" (click)="scrollMusic('right')">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24">
+                        <path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="upcoming-section">
+        <div class="projects-container">
+            <h2 class="upcoming-title">Upcoming Projects</h2>
+
+            <div class="projects-stack">
+                @for (project of upcomingProjects; track project.id; let i = $index) {
+                <div class="project-slice" [style.--index]="i" [class.expanded]="expandedProject === project.id"
+                    (mouseenter)="expandedProject = project.id" (mouseleave)="expandedProject = null">
+                    <div class="slice-inner">
+                        <img [src]="project.image" [alt]="project.title" class="project-poster">
+
+                        <div class="title-overlay">
+                            <h3 class="hover-name">{{project.title}}</h3>
+                        </div>
+
+                        <div class="letter-overlay">
+                            <span class="main-letter">{{project.letter}}</span>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="gallery-container">
+            <div class="gallery-content">
+
+                <div class="vertical-text">
+                    <span>BOLD</span>
+                    <span>UNIQUE</span>
+                    <span>TIMELESS</span>
+                    <span>DARING</span>
+                </div>
+
+                <h2 class="gallery-main-title">GALLERY</h2>
+
+                <div class="collage-wrapper">
+                    <div class="collage-item item-1" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC02465.JPG" alt="">
+                    </div>
+                    <div class="collage-item item-2" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC02738.JPG" alt="">
+                    </div>
+                    <div class="collage-item item-3" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC03523.JPG" alt="">
+                    </div>
+                    <div class="collage-item item-4" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC03282.JPG" alt="">
+                    </div>
+                    <div class="collage-item item-5" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC02648.JPG" alt="">
+                    </div>
+                    <div class="collage-item item-6" (click)="navigateToGallery()">
+                        <img src="assets/Gallery-Home/DSC02922.JPG" alt="">
+                    </div>
+                </div>
+
+                <div class="view-all-wrapper">
+                    <a class="view-photos-link" (click)="navigateToGallery()">VIEW PHOTOS</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

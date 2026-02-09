@@ -1,0 +1,42 @@
+<nav class="navbar">
+  <div class="container navbar-content">
+
+    <div class="center-icon" [class.home-logo]="isHome" routerLink="/">
+      <img src="/assets/Logo/Logo.jpg" alt="Singga Logo" class="center-logo">
+    </div>
+
+    <div class="desktop-menu" *ngIf="!isHome">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About</a>
+      <a routerLink="/music" routerLinkActive="active">Music</a>
+      <a routerLink="/shows" routerLinkActive="active">Live Performances</a>
+      <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+      <a routerLink="/fans" routerLinkActive="active">Fans</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="hamburger" (click)="toggleMobileMenu()" [class.active]="isMobileMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+  </div>
+
+  <div class="side-menu-overlay" [class.open]="isMobileMenuOpen" (click)="toggleMobileMenu()"></div>
+  <div class="side-menu" [class.open]="isMobileMenuOpen">
+    <div class="side-menu-header">
+      <img src="/assets/Logo/Logo.jpg" alt="Singga Logo" class="side-logo">
+      <button class="close-btn" (click)="toggleMobileMenu()">&times;</button>
+    </div>
+    <div class="side-links">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+      <a routerLink="/about" routerLinkActive="active">About Singga</a>
+      <a routerLink="/music" routerLinkActive="active">Music</a>
+      <a routerLink="/shows" routerLinkActive="active">Live Performances</a>
+      <a routerLink="/gallery" routerLinkActive="active">Gallery</a>
+      <a routerLink="/fans" routerLinkActive="active">Fans</a>
+      <a href="#contact" (click)="toggleMobileMenu()">Contact Team</a>
+    </div>
+  </div>
+</nav>

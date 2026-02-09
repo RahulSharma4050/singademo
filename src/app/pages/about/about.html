@@ -1,0 +1,53 @@
+<div class="about-page-container">
+    <div class="custom-cursor"></div>
+
+    <section class="top-section">
+
+        <div class="side-content left-content">
+            <h1 class="big-text">SINGGA</h1>
+            <div class="quote-box">
+                <p>“I didn’t come to fit into the industry. I came to speak my truth — and that became my sound.”</p>
+                <div class="decoration-line"></div>
+            </div>
+        </div>
+
+        <div class="side-content right-content">
+            <h1 class="big-text">OFFICIAL</h1>
+            <div class="quote-box">
+                <p>“Every song carries a piece of my journey — the struggle, the pride, and the voice of where I come
+                    from.”</p>
+                <div class="decoration-line"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="center-image-container">
+        <div class="image-oval">
+            <img src="assets/About-Page/DSC02566.JPG" alt="Singga" class="artist-img">
+        </div>
+    </div>
+
+    <section class="bottom-section">
+        <div class="sub-bar">
+            <span class="label left-label">SINGER | LYRICIST</span>
+            <span class="label right-label">PERFORMER | ACTOR</span>
+        </div>
+
+        <div class="vision-content">
+            <h2 class="section-heading animate-on-scroll fade-up">Express yourself through fashion</h2>
+
+            <div class="three-col-grid">
+                <div class="text-card animate-on-scroll slide-right" *ngFor="let item of visionContent; let i = index"
+                    [style.animation-delay]="(i * 0.1) + 's'">
+                    <h3>{{item.title}}</h3>
+                    <p>{{item.description}}</p>
+                </div>
+            </div>
+
+            <div class="back-home-wrap">
+                <a routerLink="/" class="back-link">Back to Home</a>
+            </div>
+        </div>
+    </section>
+</div>

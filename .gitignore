@@ -1,0 +1,16 @@
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.avi
+*.AVI
+
+# Node modules - IMPORTANT!
+node_modules/
+
+# Build output
+dist/
+.angular/
+
+# Environment
+.env

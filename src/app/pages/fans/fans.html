@@ -1,0 +1,39 @@
+<div class="fans-container">
+    <header class="fans-header">
+        <h1 class="main-title">FANS LOVE</h1>
+        <p class="sub-title">PORTFOLIO STANDARD</p>
+    </header>
+
+    <div class="grid-container">
+        <div class="grid-item" *ngFor="let item of fanContent" (click)="openLightbox(item)"
+            (mouseenter)="onMouseEnter($event)" (mouseleave)="onMouseLeave($event)">
+            <ng-container *ngIf="item.type === 'image'">
+                <img [src]="item.src" [alt]="item.alt" loading="lazy">
+            </ng-container>
+            <ng-container *ngIf="item.type === 'video'">
+                <video #videoPlayer [src]="item.src" muted playsinline></video>
+            </ng-container>
+            <div class="overlay">
+                <span>View</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox-overlay" *ngIf="selectedItem" (click)="closeLightbox()">
+        <div class="lightbox-content" (click)="stopPropagation($event)">
+            <button class="close-btn" (click)="closeLightbox()">&times;</button>
+
+            <img *ngIf="selectedItem.type === 'image'" [src]="selectedItem.src" [alt]="selectedItem.alt">
+
+            <video *ngIf="selectedItem.type === 'video'" [src]="selectedItem.src" controls autoplay></video>
+        </div>
+    </div>
+
+    <section class="banner-section">
+        <div class="banner-content">
+            <h2>Capture Your Happy Moments with Singga</h2>
+            <button class="action-btn" routerLink="/about">Know About Singga</button>
+        </div>
+        <div class="banner-overlay"></div>
+    </section>
+</div>

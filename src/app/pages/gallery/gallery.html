@@ -1,0 +1,27 @@
+<div class="gallery-container">
+    <div class="gallery-header">
+        <h1 class="header-title">HELLO!</h1>
+        <h2 class="header-subtitle">I'M SINGGA</h2>
+        <div class="header-description">
+            <p>From the heart of Punjab to the global stage, capturing moments that define a legacy. Explore the visual
+                journey of music, style, and soul.</p>
+        </div>
+    </div>
+
+
+
+    <div class="gallery-grid">
+        <div class="gallery-item" *ngFor="let img of displayedImages" (click)="openLightbox(img)">
+            <img [src]="'/assets/Gallery/' + img" alt="Gallery Image" loading="lazy"
+                (error)="onImageError($event, img)">
+            <div class="overlay"></div>
+        </div>
+    </div>
+</div>
+
+<div class="lightbox" *ngIf="selectedImage" (click)="closeLightbox()">
+    <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <img [src]="'/assets/Gallery/' + selectedImage" alt="Full Image">
+        <button class="close-btn" (click)="closeLightbox()">&times;</button>
+    </div>
+</div>
