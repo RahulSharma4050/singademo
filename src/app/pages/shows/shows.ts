@@ -16,7 +16,7 @@ export class ShowsComponent implements OnInit, AfterViewInit {
         { id: 3, src: 'assets/Shows/3.MP4', title: 'Dil Gift' }
     ];
 
-    activeIndex = 2;
+    activeIndex = 0;
 
     @ViewChildren('videoPlayer') videoPlayers!: QueryList<ElementRef>;
 
@@ -27,7 +27,10 @@ export class ShowsComponent implements OnInit, AfterViewInit {
     ngOnInit() { }
 
     ngAfterViewInit() {
-        this.updateVideoPlayback();
+        setTimeout(() => {
+            this.updateVideoPlayback();
+            this.scrollToActive();
+        }, 100);
     }
 
     onScroll(event: any) {

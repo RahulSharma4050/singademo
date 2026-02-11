@@ -22,6 +22,22 @@
         }
     </div>
 
+    <!-- Movie Section -->
+    <div id="movies" class="music-header movie-header-margin">
+        <h1 class="music-title lyrics-title">OFFICIAL MOVIES</h1>
+        <p class="music-subtitle lyrics-subtitle">CINEMATIC JOURNEY</p>
+    </div>
+
+    <div class="music-grid">
+        @for (item of movieCollection; track item.title) {
+        <div class="music-card movie-card">
+            <div class="card-inner">
+                <img [src]="item.image" [alt]="item.title" class="music-poster" loading="lazy">
+            </div>
+        </div>
+        }
+    </div>
+
     <div class="lyrics-section" [class.visible]="lyricsVisible">
 
         <div class="music-header lyrics-header-animate">

@@ -3,8 +3,8 @@
 
     <section class="hero-section">
         <div class="content-wrapper" [class.loaded]="isLoaded">
-            <h1 class="main-title">Singga</h1>
-            <h2 class="sub-title">Official <span class="copyright">&copy;</span></h2>
+            <h1 class="main-title">SINGGA</h1>
+            <h2 class="sub-title">OFFICIAL <span class="copyright">&copy;</span></h2>
         </div>
     </section>
 
@@ -16,7 +16,7 @@
         <nav class="nav-links">
             <a class="active">Home</a>
             <a routerLink="/about">About Singga</a>
-            <a routerLink="/music">Music</a>
+            <a routerLink="/music">Music & Cinema</a>
             <a routerLink="/gallery">Gallery</a>
             <a routerLink="/fans">Fans</a>
             <a routerLink="/shows">Live Performances</a>
@@ -57,7 +57,7 @@
         <div class="production-content">
             <h2 class="production-title">Singga</h2>
             <h3 class="production-subtitle">Presents</h3>
-            <img src="assets/Logo/Boss Boy 1.png" alt="Boss Boy Production" class="production-logo">
+            <img src="assets/Logo/BOSS BOY (1).png" alt="Boss Boy Production" class="production-logo">
         </div>
     </section>
 
@@ -82,10 +82,12 @@
         </div>
 
         <div class="music-container">
-            <h2 class="music-title">Musical Journey</h2>
+            <h2 class="music-title">Music <span class="title-cross">×</span> Cinema</h2>
 
             <div class="music-tabs">
-                <button class="active">Songs</button>
+                <button [class.active]="selectedMusicTab === 'Songs'" (click)="switchMusicTab('Songs')">Songs</button>
+                <button [class.active]="selectedMusicTab === 'Movies'"
+                    (click)="switchMusicTab('Movies')">Movies</button>
             </div>
 
             <div class="music-carousel-wrapper">
@@ -96,9 +98,9 @@
                 </button>
 
                 <div class="music-carousel">
-                    @for (song of musicList; track song.title) {
-                    <div class="music-card" (click)="openVideo(song.link)">
-                        <img [src]="song.image" [alt]="song.title" class="music-poster">
+                    @for (item of (selectedMusicTab === 'Songs' ? musicList : movieList); track item.title) {
+                    <div class="music-card" (click)="navigateToMusic(selectedMusicTab)">
+                        <img [src]="item.image" [alt]="item.title" class="music-poster">
                         <div class="play-overlay">
                             <span class="play-icon">▶</span>
                         </div>

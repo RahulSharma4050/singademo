@@ -51,9 +51,13 @@ export class FooterComponent implements AfterViewInit {
     this.isSending = true;
 
 
-    const serviceID = 'service_wsow4ji';
-    const templateID = 'template_462icbp';
-    const publicKey = 'hdHaIsFjrRdm5orFz';
+    // const serviceID = 'service_wsow4ji';
+    // const templateID = 'template_462icbp';
+    // const publicKey = 'hdHaIsFjrRdm5orFz';
+
+    const serviceID = 'service_9qi37bt';
+    const templateID = 'template_26pcbgc';
+    const publicKey = 'Z3073eaqpQYgINeUc';
 
     const templateParams = {
       name: this.contactData.name,

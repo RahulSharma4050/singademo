@@ -24,6 +24,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   ];
 
   musicList: { title: string; image: string; link: string }[] = [];
+  movieList: { title: string; image: string; link: string }[] = [];
+  selectedMusicTab: string = 'Songs';
   activeTab: string = 'posters';
   isLoaded: boolean = false;
   expandedProject: number | null = null;
@@ -69,12 +71,30 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
   generateMusicList() {
-    // Labels renamed: 'Posters' are now shown under 'Songs' as requested
-    this.musicList = Array.from({ length: 24 }, (_, i) => ({
+    this.musicList = Array.from({ length: 35 }, (_, i) => ({
       title: `Poster ${i + 1}`,
       image: `/assets/Posters/${i + 1}.jpeg`,
       link: ''
-    })).filter(item => item.title !== 'Poster 2');
+    })).filter(item => (item.title !== 'Poster 2' && item.title !== 'Poster 30' && item.title !== 'Poster 32'));
+
+    this.movieList = [
+      { title: 'Movie 1', image: '/assets/Movie/Movie1.jpeg', link: '' },
+      { title: 'Movie 2', image: '/assets/Movie/Movie2.jpeg', link: '' },
+      { title: 'Movie 3', image: '/assets/Movie/Movie3.jpeg', link: '' },
+      { title: 'Movie 4', image: '/assets/Movie/Movie4.jpeg', link: '' },
+      { title: 'Movie 5', image: '/assets/Movie/Movie5.jpeg', link: '' },
+      { title: 'Movie 6', image: '/assets/Movie/Movie6.jpeg', link: '' },
+      { title: 'Movie 7', image: '/assets/Movie/Movie7.jpeg', link: '' }
+    ];
+  }
+
+  switchMusicTab(tab: string) {
+    this.selectedMusicTab = tab;
+    const carousel = this.el.nativeElement.querySelector('.music-carousel');
+    if (carousel) {
+      carousel.scrollTo({ left: 0, behavior: 'instant' });
+    }
+    this.startMusicCarousel();
   }
 
 
@@ -359,6 +379,14 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   navigateToGallery() {
     console.log('Navigating to Gallery...');
     this.router.navigate(['/gallery']);
+  }
+
+  navigateToMusic(tab?: string) {
+    if (tab === 'Movies') {
+      this.router.navigate(['/music'], { fragment: 'movies' });
+    } else {
+      this.router.navigate(['/music']);
+    }
   }
 
   scrollToContact() {

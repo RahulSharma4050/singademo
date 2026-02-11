@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 export class MusicComponent implements OnInit {
     musicCollection: { title: string; image: string; link: string }[] = [];
     lyricsCollection: { title: string; image: string; link: string }[] = [];
+    movieCollection: { title: string; image: string; link: string }[] = [];
 
     lyricsVisible = false;
     private observer: IntersectionObserver | undefined;
@@ -82,10 +83,10 @@ export class MusicComponent implements OnInit {
             // 32: '',
             33: 'https://youtu.be/k-ZZu2xPA7E?si=wyUDL7gd-JY2c43j',
             34: 'https://youtu.be/8xIq1ePLH4E?si=soCOLmnvc5sICxKN',
-            // 35: ''
+            35: 'https://youtube.com/playlist?list=OLAK5uy_kdA0ohWuroAlD-_0ByJMrxkcEjx-JmNBM&si=Xks5AcMc6DouAGEP'
         };
 
-        const missingIds = [2, 30, 32, 35];
+        const missingIds = [2, 30, 32];
         this.musicCollection = Array.from({ length: 35 }, (_, i) => ({
             title: `Poster ${i + 1}`,
             image: `/assets/Music/${i + 1}.jpeg`,
@@ -112,6 +113,12 @@ export class MusicComponent implements OnInit {
             image: `/assets/Music/Lyrics/${i + 1}.jpeg`,
             link: lyricsLinks[i + 1] || ''
         })).filter(item => item.title !== 'Lyrics 5');
+
+        this.movieCollection = Array.from({ length: 7 }, (_, i) => ({
+            title: `Movie ${i + 1}`,
+            image: `/assets/Movie/Movie${i + 1}.jpeg`,
+            link: ''
+        }));
     }
 
 

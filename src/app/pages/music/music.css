@@ -156,13 +156,11 @@
 }
 
 
-/* Lyrics Section Styling - Premium Cream Theme */
 .lyrics-section {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     background: #E6DCC3;
     padding: 0 2rem 8rem;
-    /* Computed padding top handles by SVG space potentially, but keeping safe */
     padding-top: 4rem;
     margin-top: 10rem;
     color: #3E2723;
@@ -222,7 +220,6 @@
 .lyrics-card {
     box-shadow: 0 15px 35px rgba(62, 39, 35, 0.15);
     background: #fff;
-    /* Clean background for cards */
     border: 1px solid rgba(62, 39, 35, 0.1);
 }
 
@@ -237,4 +234,45 @@
 
 .lyrics-card .view-icon svg {
     fill: #E6DCC3;
+}
+
+.movie-header-margin .music-title {
+    color: #ffffff !important;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+}
+
+.movie-header-margin .music-subtitle {
+    color: rgba(172, 24, 24, 0.8) !important;
+}
+
+.movie-header-margin {
+    margin-top: 8rem;
+}
+
+.movie-card {
+    border: 3px solid transparent;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: transparent;
+    cursor: default;
+    border-radius: 12px;
+}
+
+.movie-card:hover {
+    border: 4px solid #ff0000 !important;
+    transform: translateY(-20px) !important;
+    box-shadow: 0 20px 40px rgba(255, 0, 0, 0.4);
+    z-index: 10;
+}
+
+.movie-card .music-poster {
+    filter: brightness(0.9);
+    border-radius: 8px;
+    transition: all 0.4s ease;
+}
+
+.movie-card:hover .music-poster {
+    filter: brightness(1.1);
+    transform: scale(1.02);
 }
